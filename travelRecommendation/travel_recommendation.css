@@ -1,10 +1,9 @@
 body {
     background-image: url('/images/imagendeciudad.jpg');
-    background-size: cover; /* Para que la imagen cubra todo el fondo */
-    background-repeat: no-repeat; /* Para que la imagen no se repita */
-    background-attachment: fixed; /* Para que la imagen de fondo permanezca fija mientras se desplaza la página */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-
 
 h1 {
     font-size: 48px;
@@ -12,20 +11,26 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     color: white;
-    margin-bottom: 10%;
     margin-left: 10%;
-    text-align:left;
+    text-align: left;
 }
 
-#descripcion {
-    font-size: 18px;
-    font-weight: bold;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-    margin-bottom: 70%;
-    margin-left: 2%;
-    text-align:left;
-    display: block;
 
+
+.text-wrapper {
+    margin-top: 00px;
+    color: white;
+    margin-top: 100px;
+    margin-left: 100px;
+    border-color: black;
+    
+}
+
+#social {
+    margin-top: 00px;
+    color: white;
+    margin-top: 100px;
+    margin-left: 100px;
+
+    
 }
