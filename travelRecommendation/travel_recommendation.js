@@ -11,9 +11,10 @@ function searchCondition() {
 
       if (items) {
         items.forEach(item => {
-          resultDiv.innerHTML += `<h2>${item.name}</h2>`;
+          // Aplica estilos inline para cambiar el color y el tamaño de la fuente
+          resultDiv.innerHTML += `<h2 style="color: white;">${item.name}</h2>`;
           resultDiv.innerHTML += `<img src="${item.imageUrl}" alt="${item.name}">`;
-          resultDiv.innerHTML += `<p>${item.description}</p>`;
+          resultDiv.innerHTML += `<p style="color: white; font-size: 30px; font-weight: bold;">${item.description}</p>`;
         });
       } else {
         resultDiv.innerHTML = 'Category not found or no items in category.';
