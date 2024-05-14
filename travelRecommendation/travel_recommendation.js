@@ -6,19 +6,24 @@ function searchCondition() {
   fetch('./travel_recommendation_api.json')
     .then(response => response.json())
     .then(data => {
-      const category = input.trim().toLowerCase(); // Convertir la entrada a minúsculas y eliminar espacios en blanco
-      const items = data[category]; // Obtener los elementos de la categoría especificada
-
-      if (items) {
-        items.forEach(item => {
-          // Aplica estilos inline para cambiar el color y el tamaño de la fuente
-          resultDiv.innerHTML += `<h2 style="color: white;">${item.name}</h2>`;
-          resultDiv.innerHTML += `<img src="${item.imageUrl}" alt="${item.name}">`;
-          resultDiv.innerHTML += `<p style="color: white; font-size: 30px; font-weight: bold;">${item.description}</p>`;
-        });
+      let items;
+      if (data[input]) {
+        items = data[input];
       } else {
-        resultDiv.innerHTML = 'Category not found or no items in category.';
+        const country = data.countries.find(country => country.name.toLowerCase() === input);
+        if (country) {
+          items = country.cities;
+        } else {
+          resultDiv.innerHTML = 'Category or country not found.';
+          return;
+        }
       }
+
+      items.forEach(item => {
+        resultDiv.innerHTML += `<h2 style="color: white;">${item.name}</h2>`;
+        resultDiv.innerHTML += `<img src="${item.imageUrl}" alt="${item.name}">`;
+        resultDiv.innerHTML += `<p style="color: white; font-size: 30px; font-weight: bold;">${item.description}</p>`;
+      });
     })
     .catch(error => {
       console.error('Error:', error);
