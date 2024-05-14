@@ -9,6 +9,16 @@ function searchCondition() {
       let items;
       if (data[input]) {
         items = data[input];
+      } else if (input === 'beach') {
+        const beaches = data.beaches;
+        if (beaches) {
+          items = beaches;
+        }
+      } else if (input === 'temple') {
+        const temples = data.temples;
+        if (temples) {
+          items = temples;
+        }
       } else {
         const country = data.countries.find(country => country.name.toLowerCase() === input);
         if (country) {
@@ -19,11 +29,15 @@ function searchCondition() {
         }
       }
 
-      items.forEach(item => {
-        resultDiv.innerHTML += `<h2 style="color: white;">${item.name}</h2>`;
-        resultDiv.innerHTML += `<img src="${item.imageUrl}" alt="${item.name}">`;
-        resultDiv.innerHTML += `<p style="color: white; font-size: 30px; font-weight: bold;">${item.description}</p>`;
-      });
+      if (items) {
+        items.forEach(item => {
+          resultDiv.innerHTML += `<h2 style="color: white;">${item.name}</h2>`;
+          resultDiv.innerHTML += `<img src="${item.imageUrl}" alt="${item.name}">`;
+          resultDiv.innerHTML += `<p style="color: white; font-size: 30px; font-weight: bold;">${item.description}</p>`;
+        });
+      } else {
+        resultDiv.innerHTML = 'Not found.';
+      }
     })
     .catch(error => {
       console.error('Error:', error);
