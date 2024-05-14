@@ -27,3 +27,12 @@ function searchCondition() {
 
 const btnSearch = document.getElementById('btnSearch');
 btnSearch.addEventListener('click', searchCondition);
+
+// Obtiene una referencia al contenedor de resultados
+const resultDiv = document.getElementById('search-results');
+
+// Agrega un evento 'click' al botón 'Clear' para limpiar los resultados mostrados
+document.getElementById('btnClear').addEventListener('click', function() {
+  // Establece el contenido del contenedor de resultados como una cadena vacía
+  resultDiv.innerHTML = '';
+});
